@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+<h1>注册</h1>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tbody>
+        <tr>
+            <td>用户名：</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td>电子邮箱：</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit">
+</form>
+</body>
+</html>

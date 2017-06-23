@@ -1,0 +1,188 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乐程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- 引入 Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href={% static "css/font-awesome.min.css"%} rel="stylesheet">
+    <link href={% static "css/home.css"%} rel="stylesheet">
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body style="background-color: #eeeeee">
+<header class="nav_container">
+    <nav class="navbar navbar-default nav_show navbar-fixed-top" role="navigation">
+        <div class="container-fluid main_component">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand main_header" href="#">乐程</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" id="home">首页</a></li>
+                    <li><a href="#" id="spot">模块</a></li>
+                    {% if user %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ user.username }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/dashboard/"><i class="fa fa-fw fa-user"></i> 信息</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/logout/"><i class="fa fa-fw fa-power-off"></i> 登出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="/signup/" id="home">注册</a></li>
+                        <li><a href="/login/" id="home">登录</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="circle_pic  scroll">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" >
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src={% static "img/home-4.jpg"%} alt="First slide">
+                <div class="carousel-caption">
+                    <h2>乐程软件工作室</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src={% static "img/home-1.jpg"%} alt="Second slide">
+                <div class="carousel-caption">
+                    <h2>Safari bug warning!</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src={% static "img/home-3.jpg"%} alt="Third slide">
+                <div class="carousel-caption">
+                    <h2>Safari bug warning!</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#myCarousel"
+           data-slide="prev">
+            <span class=" slide_left_bg"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel"
+           data-slide="next">
+            <span class="slide_right_bg"></span>
+        </a>
+    </div>
+</div>
+<!-- Example row of columns -->
+<div class="row show_details scroll">
+    <div class="col-lg-4 col-md-4">
+        <div class="show_details_block">
+            <a href="#" class="show_details_a"><img class="img-circle" src="{% static "img/news.png"%}" width="140px" height="140px" ></a>
+            <h3>公告栏</h3>
+            <p>在这里张贴学院学校各等级比赛、团队建设和活动的通知，有意向的同学多多留意，踊跃参与。</p>
+            <a href="/c/1/"><button class="btn btn-default">浏览更多</button></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <div class="show_details_block">
+            <a href="#" class="show_details_a"><img class="img-circle" src={% static "img/share.png"%}  width="140" height="140"></a>
+            <h3>分享区</h3>
+            <p>分享学习中的点点滴滴，算法、架构、设计等等无所不谈。目前支持CSDN爬取。</p>
+            <a href="/c/4"><button class="btn btn-default">浏览更多</button></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <div class="show_details_block">
+            <a href="#" class="show_details_a"><img class="img-circle" src={% static "img/code.png"%} width="140" height="140"></a>
+            <h3>资料室</h3>
+            <p>开源软件、期刊论文、学长学姐项目源码</p>
+            <a href="/c/5"><button class="btn btn-default">浏览更多</button></a>
+        </div>
+    </div>
+</div>
+<footer class="bottom_footer">
+    <div class="linking" >
+        <span>友情链接:</span>
+        <ol>
+            <li><a href="#">西南石油大学计科院</a></li>
+            <li><a href="#">ACM团队</a></li>
+            <li class="active">嵌入式团队</li>
+        </ol>
+    </div>
+    <p>Copyright © 2017 SWPU LeCheng</p>
+    <div class="media_contact">
+        <span><a href="#"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+        <span class="wechat"><a href="#" class="wechat"><i class="fa fa-wechat" aria-hidden="true"></i></a></span>
+        <span><a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a></span>
+    </div>
+</footer>
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+<script>
+    $(function() {
+        var count=0;
+        $(window).scroll(function () {
+            var top = $(document).scrollTop();
+            var show = $(".show_details");
+            var itemTop = show.offset().top;
+            if (top > itemTop-100) {
+                $("#spot").parent().addClass("active").siblings().removeClass("active");
+            }
+            else
+                $("#home").parent().addClass("active").siblings().removeClass("active");
+            var pictop=$(".circle_pic");
+            if(top > pictop.offset().top+100)
+            {
+
+                if(count==0) {
+                    show.css("padding-top","80px");
+                    show.css("width","90%");
+                    count=1;
+                }
+
+            }
+        });
+        $("#spot").click(function () {
+            $("body").animate({scrollTop: $('.show_details').offset().top}, 1000);
+        });
+        $("#home").click(function () {
+            $("body").animate({scrollTop: $('.nav_container').offset().top}, 1000);
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

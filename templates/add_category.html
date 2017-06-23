@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加分类</title>
+</head>
+<body>
+<h1>添加分类</h1>
+<form name="category_form" method="post">
+    {% csrf_token %}
+    分类名：
+    <input type="text" name="name" id="name">
+    <input type="submit">
+</form>
+</body>
+</html>
